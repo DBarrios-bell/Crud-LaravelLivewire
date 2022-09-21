@@ -1,4 +1,3 @@
 ## CRUD LARAVEL LIVEWIRE
 
-CRUD LARAVEL 8 Y LIVEWIRE CON CONEXION A MYSQL 
-CON MIGRACIONES Y SEEDERS 
+Crud Laravel 8 y Livewire con migraciones y seeders - MySQL
