@@ -31,4 +31,4 @@
         @endforeach
     </tbody>
 </table>
-{{$gastos->links()}}
+{{-- {{$gastos->links()}} --}}

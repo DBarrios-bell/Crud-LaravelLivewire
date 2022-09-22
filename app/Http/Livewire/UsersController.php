@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Expense;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 
@@ -14,7 +15,8 @@ class UsersController extends Component
 
     public function render()
     {
-        $users = User::all();
+        $idsession = Auth::user()->id;
+        $users = User::where('id',$idsession)->get();
         return view('livewire.users.component',[
             'users' => $users
             ])->extends('layouts.app')->section('content');
@@ -94,14 +96,15 @@ class UsersController extends Component
 
     public function Destroy($id)
     {
-        $gastousuario = Expense::where('user_id', $id)->count();
-        if ($gastousuario > 1) {
-            session()->flash('danger', "El usuario tiene gastos ID $id");
-        }else{
+        try {
             $user = User::find($id);
             $user ->delete();
-            session()->flash('danger', "Se ha eliminado el Usuario con ID $id");
-
+            session()->flash('status', "Se ha eliminado el Usuario con ID $id");
+        } catch (\Throwable $th) {
+            $message = $th->getMessage();
+            if (strstr($message,"Integrity constraint violation")) {
+                session()->flash('danger', "El usuario con CC $user->cedula no puede ser eliminado porque tiene gastos");
+            }
         }
     }
 
