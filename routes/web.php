@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ExportController;
 use App\Http\Livewire\ExpensesController;
+use App\Http\Livewire\Resports;
+use App\Http\Livewire\RolesController;
 use App\Http\Livewire\UsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -18,5 +21,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::middleware(['auth'])->group(function(){
     Route::get('/', UsersController::class)->name('user');
+    Route::get('/roles', RolesController::class)->name('roles');
     Route::get('/gastos', ExpensesController::class)->name('gastos');
+    Route::get('/reportes', Resports::class)->name('reportes');
+
+    Route::get('/exportar', [ExportController::class, 'export'])->name('exportar');
+
+    Route::get('report/excel/{user}/{f1}/{f2}', [ExportController::class, 'reporteExcel']);
+
+    Route::get('report/pdf/{user}/pdf/{f1}/{f2}', [ExportController::class, 'reportePDF']);
 });

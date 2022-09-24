@@ -16,9 +16,9 @@
             <tr>
                 <th scope="row">{{ $u->id }}</th>
                 <td>{{ $u->cedula }}</td>
-                <td>{{ $u->email }}</td>
+                <td>{{ $u->nombre }}</td>
                 <td>{{ $u->apellido }}</td>
-                <td>{{ $u->correo }}</td>
+                <td>{{ $u->email }}</td>
                 <td>{{ $u->telefono }}</td>
                 <td>{{ $u->created_at }}</td>
                 <td>

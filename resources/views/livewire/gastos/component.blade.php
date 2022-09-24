@@ -1,10 +1,11 @@
-<div class="p-4" style="text-align: center">
+<div class="container" style="text-align: center">
   <div class="row">
-    <div class="col-lg-7 col-md-6 embed-responsive">
+    <div class="col-lg-6 col-md-5">
         @include('livewire.gastos.listar')
     </div>
-    <div class="col align-self-end col-lg-5 col-md-4 offset-md-0">
+    <div class="col-lg-6 col-md-4">
         @include('livewire.gastos.form')
+
     </div>
   </div>
 </div>

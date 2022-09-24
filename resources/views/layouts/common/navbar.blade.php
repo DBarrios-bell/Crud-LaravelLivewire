@@ -6,6 +6,9 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="d-flex">
+            <a class="nav-link" href="{{route('reportes')}}"
+                <span>Reportes</span>
+            </a>
             <a class="nav-link" href="{{route('user')}}"
                 <span>Usuarios</span>
             </a>

@@ -38,15 +38,26 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="" class="col-md-4 col-form-label text-md-end">{{ __('') }}</label>
 
+                            <div class="col-md-6">
+                                @if (Route::has('password.request'))
+                                    <a class="text-black" style="width: 50%; height: 80%"
+                                        href="{{ route('password.request') }}">
+                                        {{ __('Olvidaste tu Contraseña?') }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    {{-- <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
-                                    </label>
+                                    </label> --}}
                                 </div>
                             </div>
                         </div>
