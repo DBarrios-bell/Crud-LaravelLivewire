@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ExportController;
 use App\Http\Livewire\ExpensesController;
+use App\Http\Livewire\PermissionController;
 use App\Http\Livewire\Resports;
 use App\Http\Livewire\RolesController;
 use App\Http\Livewire\UsersController;
@@ -22,6 +23,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function(){
     Route::get('/', UsersController::class)->name('user');
     Route::get('/roles', RolesController::class)->name('roles');
+    Route::get('/permisos', PermissionController::class)->name('permisos');
     Route::get('/gastos', ExpensesController::class)->name('gastos');
     Route::get('/reportes', Resports::class)->name('reportes');
 
