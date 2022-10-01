@@ -55,7 +55,21 @@
                     @enderror
                 </div>
             </div>
+            <div class="row mb-2">
+                <label for="perfil" class="col-md-4 col-form-label text-md-end">{{ __('perfil') }}</label>
 
+                <div class="col-md-6">
+                    <input type="text" wire:model.lazy="perfil"
+                        class="form-control @error('perfil') is-invalid @enderror" name="perfil"
+                        value="{{ old('perfil') }}" required autocomplete="perfil" autofocus>
+
+                    @error('perfil')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
 
 
             <div class="row mb-2">
