@@ -18,6 +18,7 @@ class UsersSeeder extends Seeder
             'cedula' => 1048680728,
             'nombre' => 'Cesar',
             'apellido' => 'Bermudez',
+            'perfil' => 'Admin',
             'telefono' => 3014512332,
             'email' => 'cesarb@gamail.com',
             'password' => bcrypt(123456)

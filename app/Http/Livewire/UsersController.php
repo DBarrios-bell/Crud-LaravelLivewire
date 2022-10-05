@@ -28,6 +28,7 @@ class UsersController extends Component
             'cedula'=> 'required|integer|min:5',
             'nombre'=> 'required|min:4',
             'apellido'=> 'required|min:6',
+            'perfil'=> 'required',
             'email'=> 'required|email',
             'password'=>'required',
             'telefono'=> 'required|integer|min:10'
@@ -38,6 +39,7 @@ class UsersController extends Component
         $user = User::create([
             'cedula'=>$this->cedula,
             'nombre'=>$this->nombre,
+            'perfil'=>$this->perfil,
             'apellido'=>$this->apellido,
             'email'=>$this->email,
             'password'=>bcrypt($this->password),
@@ -57,6 +59,7 @@ class UsersController extends Component
         $this->cedula = $edit->cedula;
         $this->nombre = $edit->nombre;
         $this->apellido = $edit->apellido;
+        $this->perfil = $edit->perfil;
         $this->email = $edit->email;
         $this->password = $edit->password;
         $this->telefono = $edit->telefono;
@@ -68,6 +71,7 @@ class UsersController extends Component
             'cedula'=> "required|integer|min:5|unique:users,cedula,{$this->selected_id}",
             'nombre'=> 'required|min:4',
             'apellido'=> 'required|min:6',
+            'perfil'=> 'required',
             'email'=> 'required|email',
             'password'=>'required',
             'telefono'=> 'required|integer|min:10'
@@ -80,6 +84,7 @@ class UsersController extends Component
             'cedula'=>$this->cedula,
             'nombre'=>$this->nombre,
             'apellido'=>$this->apellido,
+            'perfil'=>$this->perfil,
             'email'=>$this->email,
             'password'=>bcrypt($this->password),
             'telefono'=>$this->telefono,
@@ -112,6 +117,7 @@ class UsersController extends Component
         $this->cedula ='';
         $this->nombre = '';
         $this->apellido = '';
+        $this->perfil = '';
         $this->email='';
         $this->password='';
         $this->telefono ='';
