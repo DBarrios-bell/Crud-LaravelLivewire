@@ -8,14 +8,14 @@ use App\Http\Controllers\Controller;
 class ResponseController extends Controller
 {
 
-    public function Success($obj, $status){
+    public static function Success($obj, $status){
         return response([
             "ok"=>true,
             "body"=>$obj
         ],$status);
     }
 
-    public function Error($error, $status){
+    public static function Error($error, $status){
         return response([
             "ok"=>false,
             "error"=>$error

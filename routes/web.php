@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth:web'])->group(function(){
     Route::get('/', UsersController::class)->name('user');
     Route::get('/roles', RolesController::class)->name('roles');
     Route::get('/permisos', PermissionController::class)->name('permisos');
