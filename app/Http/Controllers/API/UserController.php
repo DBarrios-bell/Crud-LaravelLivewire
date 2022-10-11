@@ -106,10 +106,21 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        if(!User::where('id',$id)->delete()){
-            return ResponseController::Error("No Existe Un Usuario Con Ese Registo",404);
+        try {
+            if(!User::where('id',$id)->delete()){
+                return ResponseController::Error("No Existe Un Usuario Con Ese Registo",404);
+            }
+            return ResponseController::Success("Eliminado Correctamente",200);
+        } catch (\Throwable $th) {
+            $message = $th->getMessage();
+            if (strstr($message,"Integrity constraint violation")) {
+                return ResponseController::Error("No Se Puede Eliminar El Usuario Con ID $id, Tiene Gastos Asociados",200);
+            }
         }
-        return ResponseController::Success("Eliminado Correctamente",200);
+        // if(!User::where('id',$id)->delete()){
+        //     return ResponseController::Error("No Existe Un Usuario Con Ese Registo",404);
+        // }
+        // return ResponseController::Success("Eliminado Correctamente",200);
     }
 
     public function rol(){
