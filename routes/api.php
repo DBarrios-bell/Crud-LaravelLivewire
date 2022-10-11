@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\Api\ExpenseController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -45,9 +46,11 @@ Route::group(['middleware' => ['isLogged']], function(){
     });
 
     Route::group(['prefix'=>'expense'], function(){
-        Route::get('/',[UserController::class,'index']);
-        Route::post('/',[UserController::class,'create']);
-        Route::get('/:id',[UserController::class,'show']);
+        Route::get('/',[ExpenseController::class,'index']);
+        Route::post('/',[ExpenseController::class,'create']);
+        Route::get('/{id}',[ExpenseController::class,'show']);
+        Route::patch('/{id}',[ExpenseController::class,'update']);
+        Route::delete('/{id}',[ExpenseController::class,'destroy']);
     });
 
 });

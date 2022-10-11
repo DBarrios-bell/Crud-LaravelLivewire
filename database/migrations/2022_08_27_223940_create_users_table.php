@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->integer('cedula')->unique();
             $table->string('nombre');
             $table->string('apellido');
-            $table->enum('perfil',['Admin','Invitado'])->default('Invitado'); /*se quito esa caga*/ 
+            $table->enum('perfil',['Admin','Invitado'])->default('Invitado');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('telefono');
