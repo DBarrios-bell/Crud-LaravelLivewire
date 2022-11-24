@@ -117,10 +117,6 @@ class UserController extends Controller
                 return ResponseController::Error("No Se Puede Eliminar El Usuario Con ID $id, Tiene Gastos Asociados",200);
             }
         }
-        // if(!User::where('id',$id)->delete()){
-        //     return ResponseController::Error("No Existe Un Usuario Con Ese Registo",404);
-        // }
-        // return ResponseController::Success("Eliminado Correctamente",200);
     }
 
     public function rol(){
