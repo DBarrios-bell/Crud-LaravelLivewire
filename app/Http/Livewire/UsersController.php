@@ -11,7 +11,7 @@ use Livewire\Component;
 
 class UsersController extends Component
 {
-    public $nombre, $apellido, $cedula, $telefono, $email, $password, $selected_id;
+    public $nombre, $apellido, $cedula, $telefono, $email, $password, $selected_id, $perfil;
 
 
     public function render()
